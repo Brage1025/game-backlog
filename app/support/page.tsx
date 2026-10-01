@@ -6,11 +6,10 @@ import { QRCode, QRCodeSvg } from "@/components/ui/qr-code";
 
 import { Card, CardContent } from "@/components/ui/card";
 
-// TODO: replace with your real ETH address.
 const ETH_ADDRESS = "0x2E1C3cB3C1d14438c003e978F3d4caD84b295cD3";
 
 // TODO: replace with your real GitHub repo URL.
-const GITHUB_URL = "https://github.com/Brage1025";
+const GITHUB_URL = "https://github.com/Brage1025/game-backlog";
 
 export default function SupportPage() {
   return (
