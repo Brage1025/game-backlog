@@ -1,8 +1,14 @@
-# Game Backlog
+<p align="center">
+  <img src="public/game-backlog-logo.png" alt="Game Backlog" width="500">
+</p>
+
+<p align="center">
+  <strong>Live demo: <a href="https://game-backlog-liart.vercel.app">game-backlog-liart.vercel.app</a></strong>
+</p>
 
 A personal game backlog tracker, built as a learning project for TypeScript, Tailwind CSS, and Next.js.
 
-Track what you're playing, what's done, and what's still waiting in the backlog — with autocomplete cover art, achievements based on your own library, a way to compare libraries with friends via share codes, and no account or server required.
+Tracks what you're playing, what's done, and what's still waiting in the backlog — with autocomplete cover art, achievements based on your own library, a way to compare libraries with friends via share codes, and no account or server required.
 
 ## Features
 
@@ -60,9 +66,17 @@ Track what you're playing, what's done, and what's still waiting in the backlog 
 
 4. Open [http://localhost:3000](http://localhost:3000).
 
+## Deployment
+
+Deployed on [Vercel](https://vercel.com), which runs the Next.js server features this project relies on (the `/api/games/search` route, and server-rendered theme) exactly as they run locally.
+
+This wouldn't work unmodified on a static host like GitHub Pages, since it has no server to run those on. See `app/api/games/search/route.ts` (needs a server to keep `RAWG_API_KEY` off the client) and `app/layout.tsx` (reads the theme cookie server-side to avoid a flash of the wrong theme on load).
+
+Pushing to `main` triggers an automatic redeploy. `RAWG_API_KEY` needs to be set separately in the Vercel project's Environment Variables — it isn't read from `.env.local`, since that file never leaves your machine.
+
 ## Notes
 
-- All data (games, profile, friends, theme) lives in your browser's `localStorage`. Clearing site data or switching browsers/devices starts you over.
+- Games, profile, and friends data live in your browser's `localStorage`; the theme choice lives in a cookie instead (read server-side to set the right theme before the page even renders). Clearing site data or switching browsers/devices resets all of it.
 - Friend sharing is a manual, one-way snapshot — not a live connection. See the in-app Friends page for details.
 - Profile pictures are resized and compressed client-side before being stored, to stay well within `localStorage`'s size limits.
 
