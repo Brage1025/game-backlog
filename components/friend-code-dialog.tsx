@@ -66,7 +66,7 @@ export function FriendCodeDialog({
       mode === "update"
         ? friends.find((f) => f.id === targetFriendId)
         : friends.find(
-            (f) => f.username.toLowerCase() === payload.username.toLowerCase()
+            (f) => f.username.toLowerCase() === payload.username.toLowerCase(),
           );
 
     onSave({
@@ -91,7 +91,7 @@ export function FriendCodeDialog({
               {mode === "add" ? "Add a friend" : "Update this friend"}
             </DialogTitle>
             <DialogDescription>
-              Paste the share code they sent you. It's a snapshot of their
+              Paste the share code they sent you. It is a snapshot of their
               library at the moment they generated it --
               {mode === "add"
                 ? " if you've already added someone with the same username, this updates them instead of adding a duplicate."
